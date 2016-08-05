@@ -3,26 +3,32 @@
   fields:
 
   - dimension: _id
+    hidden: true
     type: string
     sql: ${TABLE}._id
 
   - dimension: address_building
+    hidden: true
     type: string
     sql: ${TABLE}."address.building"
 
   - dimension: address_street
+    hidden: true
     type: string
     sql: ${TABLE}."address.street"
 
   - dimension: address_zipcode
+    hidden: true
     type: string
     sql: ${TABLE}."address.zipcode"
 
   - dimension: borough
+    hidden: true
     type: string
     sql: ${TABLE}.borough
 
   - dimension: cuisine
+    hidden: true
     type: string
     sql: ${TABLE}.cuisine
 
@@ -32,10 +38,12 @@
     sql: ${TABLE}."grades.date"
 
   - dimension: grades_grade
+    hidden: true
     type: string
     sql: ${TABLE}."grades.grade"
 
   - dimension: grades_idx
+    hidden: true
     type: number
     value_format_name: id
     sql: ${TABLE}.grades_idx
@@ -45,12 +53,12 @@
     sql: ${TABLE}."grades.score"
 
   - dimension: name
+    hidden: true
     type: string
     sql: ${TABLE}.name
 
   - dimension: restaurant_id
     type: string
-    # hidden: true
     sql: ${TABLE}.restaurant_id
 
   - measure: count
