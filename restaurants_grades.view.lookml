@@ -2,10 +2,11 @@
   sql_table_name: public.restaurants_grades
   fields:
 
-  - dimension: _id
+  - dimension: pk
     hidden: true
+    primary_key: true
     type: string
-    sql: ${TABLE}._id
+    sql: ${TABLE}._id || '-' || ${TABLE}.grades_idx
 
   - dimension: address_building
     hidden: true
@@ -64,4 +65,8 @@
   - measure: count
     type: count
     drill_fields: [name, restaurants.name, restaurants.restaurant_id]
+    
+  - measure: average_score
+    type: avg
+    sql: ${grades_score}
 
