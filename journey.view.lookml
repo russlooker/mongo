@@ -17,13 +17,11 @@
         public.locations_locations L
 
   fields:
-  - measure: count
-    type: count
-    drill_fields: detail*
+
 
   - dimension: current_time
     type: time
-    timeframes: [year, month, date]
+    timeframes: [year, month, week, date, hour, time, day_of_week]
     sql: ${TABLE}."current_time"
 
   - dimension: current_lat
@@ -46,7 +44,7 @@
 
   - dimension: previous_time
     type: time
-    timeframes: [year, month, date, hour, time]
+    timeframes: [year, month, week, date, hour, time, day_of_week]
     sql: ${TABLE}.previous_time
 
   - dimension: previous_lat
@@ -64,6 +62,11 @@
   - measure: average_velocity
     type: avg
     sql: ${locations_velocity}
+    drill_fields: detail*
+
+  - measure: count
+    type: count
+    drill_fields: detail*
 
   sets:
     detail:
