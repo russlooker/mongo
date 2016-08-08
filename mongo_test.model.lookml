@@ -19,3 +19,6 @@
 - explore: users
 
 
+- explore: locations
+
+- explore: journey
