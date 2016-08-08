@@ -4,7 +4,7 @@
     indexes: [id]
     sql: |
       SELECT
-        row_number() as id
+        row_number() over (order by to_timestamp(L."locations.timestampMs"::bigint/1000)) as id
         ,to_timestamp(L."locations.timestampMs"::bigint/1000) AS current_time
         ,L."locations.velocity"
         ,L."locations.latitudeE7"*1.0/10000000 AS current_lat
